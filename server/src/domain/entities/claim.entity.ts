@@ -1,5 +1,5 @@
-import{v4} from 'uuid';
-import{Visitor} from './visitor.entity';
+import{ v4 } from 'uuid';
+import Visitor from './visitor.entity';
 
 class Claim{
     private id:string;
@@ -40,7 +40,16 @@ class Claim{
         createdAt:Date,
         cloneOf:Claim,
         ):Claim{
-            return new Claim(v4(),owner,title,description,category,location,createdAt,cloneOf);
+            return new Claim(
+                v4(),
+                owner,
+                title,
+                description,
+                category,
+                location,
+                createdAt,
+                cloneOf
+            );
     }
 
 }

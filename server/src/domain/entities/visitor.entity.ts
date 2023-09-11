@@ -18,8 +18,8 @@ class Visitor {
     }
     
     public static create(
-    ip  :string ,
-        nickname :string ,
+        ip : string ,
+        nickname : string ,
     ):Visitor {
         return new Visitor(
             v4(),
