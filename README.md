@@ -1,2 +1,2 @@
-# grupo7-metodologia
-Grupo 7
+# grupo6-metodologia
+Grupo 6
