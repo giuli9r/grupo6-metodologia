@@ -52,4 +52,18 @@ class Claim{
             );
     }
 
+    public getId(): string {
+        return this.id;
+    }
+
+    public getOwner(): Visitor {
+        return this.owner;
+    }
+
+    public getCreatedAt(): Date {
+        return this.createdAt
+    }
+    
 }
+
+export default Claim;
