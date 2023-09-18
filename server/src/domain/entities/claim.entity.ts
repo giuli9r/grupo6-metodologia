@@ -38,7 +38,7 @@ class Claim{
         category:Category,
         location:string,
         createdAt:Date,
-        cloneOf:Claim,
+        cloneOf?:Claim,
         ):Claim{
             return new Claim(
                 v4(),
