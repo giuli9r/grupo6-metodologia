@@ -21,3 +21,5 @@ class Category{
         return this.color;
       }
 }
+
+export default Category;
