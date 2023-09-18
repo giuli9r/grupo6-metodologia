@@ -9,7 +9,7 @@ class Claim{
     private category: Category;
     private location: string;
     private createdAt: Date;
-    private cloneOf: Claim;
+    private cloneOf?: Claim;
 
     private constructor(
         id:string,
@@ -19,7 +19,7 @@ class Claim{
         category:Category,
         location:string,
         createdAt:Date,
-        cloneOf:Claim,
+        cloneOf?:Claim,
     ){
         this.id=id;
         this.owner=owner;
