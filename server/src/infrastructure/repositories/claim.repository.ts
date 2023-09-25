@@ -29,9 +29,9 @@ class ClaimRepository{
             try {
                 const visitorClaims = this.claim.filter((claim) => claim.getOwner().getId() === visitorId);
             
-                visitorClaims.sort((a, b) => b.getCreatedAt().getTime() - a.getCreatedAt().getTime());
+                let orderedVisitorClaims = visitorClaims.sort((a, b) => b.getCreatedAt().getTime() - a.getCreatedAt().getTime());
             
-                const result = visitorClaims.slice(0, count);
+                const result = orderedVisitorClaims.slice(0, count);
                 resolve(result);
             } catch (error) {
                 reject(error);
