@@ -11,4 +11,6 @@
 
 5. En caso de mostrar algun error ejecutar un `docker exec -it server sh` y ejecutar un `yarn install`
 
+
 Trabajar en rama dev
+
