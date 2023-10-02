@@ -9,7 +9,7 @@ class CategoryRepository{
     }
 
     public async save(category : Category): Promise<void>{
-        const saveCategory = this.category.find(a => a.getId() == category.getId());
+        const saveCategory = this.category.find(a => a.getId() === category.getId());
 
         if (saveCategory){
             this.category.splice(this.category.indexOf(saveCategory), 1);
@@ -28,4 +28,5 @@ class CategoryRepository{
     }
 }
 
+export default CategoryRepository;
 
