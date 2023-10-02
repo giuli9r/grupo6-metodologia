@@ -11,3 +11,4 @@ Instalar [docker](https://docs.docker.com/engine/install/)
 
 NOTA: tener en cuenta que el docker corre en modo production, es decir que cada cambio que hagan deben rebuildear la imagen y no va a funcionar en modo _hot-reload_
 
+Trabajar en la rama dev
