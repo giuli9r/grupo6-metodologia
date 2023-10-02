@@ -1,13 +1,13 @@
 
 ### Pasos de instalacion
 
-1. ir a la carpeta `server` con un `cd server`
+Instalar [docker](https://docs.docker.com/engine/install/)
 
-2. Para poder instalar las dependencias y que el ide las detecte ejecutar un `yarn install` en caso que yarn no exista usar un `npm install`
+1. Moverse a la carpeta docker con un `cd docker`
 
-3. Luego construir la imagen con un `sudo docker build .`
+2. Luego construir la imagen con un `docker compose up --build -d` 
 
-4. Nos movemos a la carpeta del docker con un `cd ../docker` y ejecutamos un `sudo docker-compose up --build`
+3. En caso de mostrar algun error consultar 
 
-5. En caso de mostrar algun error ejecutar un `docker exec -it server sh` y ejecutar un `yarn install`
+NOTA: tener en cuenta que el docker corre en modo production, es decir que cada cambio que hagan deben rebuildear la imagen y no va a funcionar en modo _hot-reload_
 
