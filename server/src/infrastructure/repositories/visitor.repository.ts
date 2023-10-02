@@ -1,6 +1,6 @@
 import Visitor from "../../domain/entities/visitor.entity";
 
-class VisitorRepository {
+export class VisitorRepository {
 
     private visitors : Visitor[];
 
@@ -21,8 +21,6 @@ class VisitorRepository {
         const visitor = this.visitors.find(a => a.getId() == id);
         return visitor ? visitor : null;
     }
-
-
 
 }
 
