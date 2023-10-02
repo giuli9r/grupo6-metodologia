@@ -28,5 +28,5 @@ class CategoryRepository{
     }
 }
 
-export default CategoryRepository;
+export default new CategoryRepository();
 
