@@ -22,7 +22,7 @@ class VisitorRepository {
         return visitor ? visitor : null;
     }
 
-
-
 }
+
+export default new VisitorRepository();
 

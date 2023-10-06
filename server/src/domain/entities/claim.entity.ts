@@ -2,7 +2,7 @@ import{ v4 } from 'uuid';
 import Visitor from './visitor.entity';
 import Category from './category.entity';
 
-class Claim{
+export class Claim{
     private id:string;
     private owner:Visitor;
     private title:string;
