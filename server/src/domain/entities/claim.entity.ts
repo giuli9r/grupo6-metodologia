@@ -38,9 +38,8 @@ export class Claim{
         title:string,
         description:string,
         category:Category,
-        location:string,
-        createdAt:Date,
-        cloneOf:Claim | null,
+        location:string
+
         ):Claim{
             return new Claim(
                 v4(),
@@ -49,8 +48,8 @@ export class Claim{
                 description,
                 category,
                 location,
-                createdAt,
-                cloneOf
+                new Date(),
+                null
             );
     }
 
