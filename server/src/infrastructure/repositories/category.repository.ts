@@ -28,5 +28,6 @@ class CategoryRepository{
     }
 }
 
+export {CategoryRepository};
 export default new CategoryRepository();
 
