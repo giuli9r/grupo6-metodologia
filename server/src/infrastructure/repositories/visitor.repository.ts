@@ -22,6 +22,10 @@ class VisitorRepository {
         return visitor ? visitor : null;
     }
 
+    public async findAll(): Promise<Visitor[]> {
+        return this.visitors;
+    }
+
 }
 
 export default new VisitorRepository();
