@@ -21,12 +21,13 @@ class CreateClaimAction {
             return res.status(201).json(
                 {message: 'Claim created succesfully'}
             )
-        } catch (error) {
-            if (error instanceof Error) {
+        } catch (error:any)
+            {
+                const e = error as Error;
                 res.status(400).json(
-                    { message: error.message }
+                    { message: e.message }
                 );
-            }
+            
         }
     }
 }
