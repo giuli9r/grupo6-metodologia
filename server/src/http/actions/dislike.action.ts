@@ -10,10 +10,10 @@ class DislikeAction {
       const claim = claims.find((r) => r.id === claimId);
 
       if (claim) {
-        claim.likes += 1;
+        claim.dislikes += 1;
 
         return res.status(201).json(
-          { message: 'Reclado likeado' }
+          { message: 'Reclamo deslikeado' }
         );
       } 
       
