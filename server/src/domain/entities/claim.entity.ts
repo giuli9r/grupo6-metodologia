@@ -10,7 +10,8 @@ export class Claim{
     private category: Category;
     private location: string;
     private createdAt: Date;
-    private cloneOf?: Claim;
+    private cloneOf: Claim | null;
+    private likes: string[] = [];
 
     private constructor(
         id:string,
@@ -20,7 +21,7 @@ export class Claim{
         category:Category,
         location:string,
         createdAt:Date,
-        cloneOf?:Claim,
+        cloneOf:Claim | null,
     ){
         this.id=id;
         this.owner=owner;
@@ -39,7 +40,7 @@ export class Claim{
         category:Category,
         location:string,
         createdAt:Date,
-        cloneOf?:Claim,
+        cloneOf:Claim | null,
         ):Claim{
             return new Claim(
                 v4(),
@@ -64,7 +65,11 @@ export class Claim{
     public getCreatedAt(): Date {
         return this.createdAt
     }
-    
+
+    public getLikes(): string[] {
+        return this.likes;
+      }
+      
 }
 
 export default Claim;
