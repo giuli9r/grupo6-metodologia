@@ -14,11 +14,16 @@ class LikeAction {
       return res.status(201).json(
         { message: 'Reclamo likeado' }
       );
-    } catch (error) {
-        res.status(400).json(
-          { message: error.message }
-        );
+    } 
+    catch (error:any)
+    {
+      const e = error as Error;
+      res.status(400).json(
+      { message: e.message }
+      );
+        
     }
+    
   }
 }
 
