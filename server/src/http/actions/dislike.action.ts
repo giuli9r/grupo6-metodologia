@@ -1,29 +1,30 @@
 import { Request, Response } from 'express';
+import dislikeCommand from '../../application/commands/dislike.command';
 
 
 class DislikeAction {
   public async run(req: Request, res: Response) {
-    const { claimId } = req.body; 
+    const {userId, claimId } = req.body; 
 
     try {
+      const command = new dislikeCommand(userId,claimId) 
       
-      const claim = claims.find((r) => r.id === claimId);
+      await CreateDislikeHandler.execute(command)
 
-      if (claim) {
-        claim.dislikes += 1;
-
-        return res.status(201).json(
-          { message: 'Reclamo deslikeado' }
-        );
-      } 
-      
+      return res.status(201).json(
+        { message: 'Dislike' }
+      );
     } 
-    catch (error) {
+    catch (error:any)
+    {
+      const e = error as Error;
       res.status(400).json(
-        { message: error.message }
-    );
+      { message: e.message }
+      );
+        
     }
   }
 }
+
 
 export default new DislikeAction();
