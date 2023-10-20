@@ -67,7 +67,17 @@ export class Claim{
 
     public getLikes(): string[] {
         return this.likes;
-      }
+    }
+
+    public hasVisitorLiked(visitorId: string): boolean {
+        return this.likes.includes(visitorId);
+    }
+
+    public addLike(visitorId: string): void {
+        if (!this.likes.includes(visitorId)) {
+          this.likes.push(visitorId);
+        }
+    }
       
 }
 
