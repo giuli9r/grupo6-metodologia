@@ -43,4 +43,5 @@ class ClaimRepository{
 
 }
 
-
+export {ClaimRepository};
+export default new ClaimRepository();
