@@ -1,17 +1,14 @@
-class CategoriesCommand {
-  private readonly id: string;
+class GetCategoriesCommand {
+
   private readonly name: string; 
   private readonly color: string;
   
-  constructor(id: string, name: string, color: string) {
-    this.id = id;
+  constructor( name: string, color: string) {
     this.name = name;
     this.color = color;
   }
   
-  getId(): string {
-    return this.id;
-  }
+
   
   getName(): string {
     return this.name;
@@ -22,4 +19,4 @@ class CategoriesCommand {
   }
 }
   
-export default CategoriesCommand;
+export default GetCategoriesCommand;
