@@ -7,7 +7,11 @@ import { error } from "winston";
 
 
 class CreateClaimHandler{
-    public constructor(private readonly visitorRepository: VisitorRepository){}
+  private visitorRepository: VisitorRepository;
+
+    public constructor(visitorRepository: VisitorRepository){
+      this.visitorRepository = visitorRepository;
+    }
     public async execute(command: CreateClaimCommand): Promise<void> {
       try { 
         // Buscar el visitante
@@ -40,5 +44,5 @@ class CreateClaimHandler{
   }
 }
 
-export default CreateClaimHandler;
+export default new CreateClaimHandler(visitorRepository);
 
