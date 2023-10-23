@@ -1,7 +1,7 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
 import createCategoryAction from '../actions/category/create.category.action';
-import updateCategoryAction from '../actions/caregory/update.category.action';
+import updateCategoryAction from '../actions/category/update.category.action';
 import findCategoryAction from '../actions/category/find.category.action';
 
 class CategoryRoutes extends CommonRoutes{
