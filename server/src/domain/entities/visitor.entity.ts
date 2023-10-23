@@ -50,6 +50,10 @@ class Visitor {
     public getNickName(){
         return   this.nickname;
     }
+
+    public getPin(){
+        return this.pin;
+    }
 }
 
 export default Visitor;
