@@ -1,51 +1,44 @@
-import {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
+import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
 import Claim from '../../domain/entities/claim.entity';
 import {CreateClaimCommand} from '../commands/claim/create.claim.command';
 import Visitor from '../../domain/entities/visitor.entity';
 import Category from '../../domain/entities/category.entity';
+import { error } from "winston";
 
 
 class CreateClaimHandler{
-    private visitorRepository: VisitorRepository;
-
-
-    public constructor(
-        visitorRepository: VisitorRepository
-    ){
-        this.visitorRepository;
-    }
-
-
-    
-    
-    
+    public constructor(private readonly visitorRepository: VisitorRepository){}
     public async execute(command: CreateClaimCommand): Promise<void> {
-    // Buscar el visitante
-    const visitor = this.visitorRepository.findOneById(command.getOwnerId());
-        
-    if (!visitor) {
-    throw new Error('Visitante no encontrado ');
-    }
-
-    // Validar el formato del PIN ingresado
-    if (!visitor.isValidPin(command.getPin())) {
-      throw new Error('PIN incorrecto.');
-    }
-
-    const title= command.getTittle();
-    const description=command.getDescription();
-    const category=command.getCategory();
-    const location= command.getLocation();
+      try { 
+        // Buscar el visitante
+        const visitor = await this.visitorRepository.findOneById(command.getOwnerId());
+            
+        if (!visitor) {
+          throw new Error('Visitante no encontrado ');
+        }
     
-    const claim = Claim.create(
-        visitor,
-        title,
-        description,
-        category,
-        location,
-    );
+        // Validar el formato del PIN ingresado
+        if (!visitor.validatePin(command.getOwnerPin())) {
+          throw new Error('PIN incorrecto.');
+        }
+    
+        const title= command.getTittle();
+        const description=command.getDescription();
+        const category=command.getCategory();
+        const location= command.getLocation();
+        
+        const claim = Claim.create(
+            visitor,
+            title,
+            description,
+            category,
+            location,
+        );
+      } catch(error){
+        console.error('error in create claim handler', error)
+      }
   }
 }
-export default new CreateClaimHandler(
-  VisitorRepository,
-);
+
+export default CreateClaimHandler;
+
