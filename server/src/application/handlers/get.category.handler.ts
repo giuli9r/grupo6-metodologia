@@ -3,7 +3,7 @@ import categoryRepository, { CategoryRepository }  from "../../infrastructure/re
 
 
 
-class CreateCategoryHandler{
+class GetCategoryHandler{
   private categoryRespository: CategoryRepository;
 
   public constructor(categoryRepository: CategoryRepository){
@@ -15,6 +15,6 @@ class CreateCategoryHandler{
   }
 }
 
-export default new CreateCategoryHandler(
+export default new GetCategoryHandler(
   categoryRepository
 );
