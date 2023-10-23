@@ -1,4 +1,5 @@
 import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
+import claimRepository from 'infrastructure/repositories/claim.repository';
 import Claim from '../../domain/entities/claim.entity';
 import {CreateClaimCommand} from '../commands/claim/create.claim.command';
 import Visitor from '../../domain/entities/visitor.entity';
@@ -38,6 +39,8 @@ class CreateClaimHandler{
             category,
             location,
         );
+
+        await claimRepository.save(claim);
       } catch(error){
         console.error('error in create claim handler', error)
       }
