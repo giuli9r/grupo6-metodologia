@@ -33,3 +33,5 @@ class LikeHandler{
     }
 
 }
+
+export default new LikeHandler(claimRepository, visitorRepository);

@@ -18,3 +18,5 @@ export class CreateVisitorCommand {
             return this.nickname
         }
     }
+
+    export default CreateVisitorCommand;
