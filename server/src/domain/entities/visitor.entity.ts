@@ -51,6 +51,10 @@ class Visitor {
         return   this.nickname;
     }
 
+    public getIp(): string {
+      return this.ip;
+    }
+
     public getPin(){
         return this.pin;
     }

@@ -1,13 +1,15 @@
 import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
 import Claim from '../../domain/entities/claim.entity';
-import {CreateClaimCommand} from '../commands/claim/create.claim.command';
+import {CreateClaimCommand} from '../commands/create.claim.command';
 import Visitor from '../../domain/entities/visitor.entity';
 import Category from '../../domain/entities/category.entity';
 import { error } from "winston";
 
 
 class CreateClaimHandler{
-    public constructor(private readonly visitorRepository: VisitorRepository){}
+    public constructor(
+      private readonly visitorRepository: VisitorRepository
+    ){}
     public async execute(command: CreateClaimCommand): Promise<void> {
       try { 
         // Buscar el visitante
@@ -22,7 +24,7 @@ class CreateClaimHandler{
           throw new Error('PIN incorrecto.');
         }
     
-        const title= command.getTittle();
+        const title= command.getTitle();
         const description=command.getDescription();
         const category=command.getCategory();
         const location= command.getLocation();
