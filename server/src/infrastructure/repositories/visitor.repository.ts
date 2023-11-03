@@ -22,6 +22,11 @@ class VisitorRepository {
         return visitor ? visitor : null;
     }
 
+    public async findOneByNickName(nickname : string): Promise<Visitor | null>{
+        const visitor = this.visitors.find(a => a.getNickName() == nickname);
+        return visitor ? visitor : null;
+    }
+
     public async findAll(): Promise<Visitor[]> {
         return this.visitors;
     }
