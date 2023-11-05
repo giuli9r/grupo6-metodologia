@@ -28,14 +28,14 @@ class ClaimRepository{
     }
 
    
-    public async findLastXClaimsByVisitor(visitorId: string, count: number): Promise<Claim[] | null> {
+    public async findLastClaimsByVisitor(visitorId: string ): Promise<Claim[] | null> {
         return new Promise<Claim[] | null>((resolve, reject) => {
             try {
                 const visitorClaims = this.claim.filter((claim) => claim.getOwner().getId() === visitorId);
             
                 let orderedVisitorClaims = visitorClaims.sort((a, b) => b.getCreatedAt().getTime() - a.getCreatedAt().getTime());
             
-                const result = orderedVisitorClaims.slice(0, count);
+                const result = orderedVisitorClaims.slice(0, 5);
                 resolve(result);
             } catch (error) {
                 reject(error);

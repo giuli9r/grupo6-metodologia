@@ -1,8 +1,7 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
-import createClaimAction from '../actions/claim/create.claim.action';
-import updateClaimAction from '../actions/claim/update.claim.action';
-import findClaimAction from '../actions/claim/find.claim.action';
+import createClaimAction from 'http/actions/create.claim.action';
+import getLastClaimByVisitorAction from 'http/actions/getLastClaimByVisitor.action';
 
 class ClaimRoutes extends CommonRoutes{
     public constructor(app: Application){
@@ -10,8 +9,7 @@ class ClaimRoutes extends CommonRoutes{
     }
     public setUpRoutes(): Application {
         this.app.post('/claim', createClaimAction.run);
-        this.app.get('/category',findClaimAction.run);
-        this.app.put('/category',updateClaimAction.run);
+        this.app.get('/claim/last/:visitorId',getLastClaimByVisitorAction.run);
 
         return this.app;
     }
