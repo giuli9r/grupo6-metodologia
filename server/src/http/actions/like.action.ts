@@ -3,7 +3,7 @@ import likeCommand from '../../application/commands/like.command';
 import likeHandler from '../../application/handlers/like.handler';
 
 class LikeAction {
-  public async likeClaim(req: Request, res: Response) {
+  public async run(req: Request, res: Response) {
     const { userId, claimId } = req.body;
 
     try {
