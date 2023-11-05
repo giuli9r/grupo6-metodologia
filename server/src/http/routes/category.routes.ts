@@ -1,7 +1,7 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
 import createCategoryAction from '../actions/category/create.category.action';
-import updateCategoryAction from '../actions/category/update.category.action';
+import getCategoryAction from 'http/actions/get.category.action';
 import findCategoryAction from '../actions/category/find.category.action';
 
 class CategoryRoutes extends CommonRoutes{
@@ -11,7 +11,7 @@ class CategoryRoutes extends CommonRoutes{
     public setUpRoutes(): Application {
         this.app.post('/category', createCategoryAction.run);
         this.app.get('/category',findCategoryAction.run);
-        this.app.put('/category',updateCategoryAction.run);
+        this.app.put('/category',getCategoryAction.run);
 
         return this.app;
     }
