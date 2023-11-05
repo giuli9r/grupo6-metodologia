@@ -23,6 +23,10 @@ class ClaimRepository{
         return claim ? claim : null;
     }
 
+    public async findAll(): Promise<Claim[]> {
+        return this.claim
+    }
+
    
     public async findLastXClaimsByVisitor(visitorId: string, count: number): Promise<Claim[] | null> {
         return new Promise<Claim[] | null>((resolve, reject) => {
