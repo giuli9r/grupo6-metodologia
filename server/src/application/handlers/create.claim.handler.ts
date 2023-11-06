@@ -1,5 +1,5 @@
 import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
-import claimRepository from 'infrastructure/repositories/claim.repository';
+import claimRepository from '../../infrastructure/repositories/claim.repository';
 import Claim from '../../domain/entities/claim.entity';
 import {CreateClaimCommand} from '../commands/create.claim.command';
 import Visitor from '../../domain/entities/visitor.entity';

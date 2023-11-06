@@ -1,10 +1,10 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
-import createClaimAction from 'http/actions/create.claim.action';
-import reportClaimAction from 'http/actions/report.claim.action';
-import getLastClaimByVisitorAction from 'http/actions/getLastClaimByVisitor.action';
-import getLastClaimsAction from 'http/actions/getLastClaims.action';
-import getOnFireClaimAction from 'http/actions/getOnFireClaimAction';
+import createClaimAction from '../actions/create.claim.action';
+import reportClaimAction from '../actions/report.claim.action';
+import getLastClaimByVisitorAction from '../actions/getLastClaimByVisitor.action';
+import getLastClaimsAction from '../actions/getLastClaims.action';
+import getOnFireClaimAction from '../actions/getOnFireClaimAction';
 
 class ClaimRoutes extends CommonRoutes{
     public constructor(app: Application){

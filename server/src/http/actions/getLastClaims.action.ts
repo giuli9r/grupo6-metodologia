@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
+import { Request,  Response } from 'express';
 import ClaimRepository from 'infrastructure/repositories/claim.repository';
 
 class GetLastClaimsAction {
-  public async run(req: Request, res: Response): Promise<void> {
+  public async run(_req: Request, res: Response): Promise<void> {
     try {
       const lastClaims = await ClaimRepository.findLast5Claims(); 
 

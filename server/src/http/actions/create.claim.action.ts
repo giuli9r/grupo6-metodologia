@@ -24,9 +24,10 @@ class CreateClaimAction {
         } catch (error:any)
             {
                 const e = error as Error;
-                res.status(400).json(
+                return res.status(400).json(
                     { message: e.message }
                 );
+            
             
         }
     }

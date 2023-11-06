@@ -1,4 +1,4 @@
-import { Application, application } from "express";
+import { Application } from "express";
 import CommonRoutes from "./common.routes"
 import createVisitorAction from '../actions/create.visitor.action';
 
