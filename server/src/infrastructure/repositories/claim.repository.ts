@@ -3,12 +3,11 @@ import Claim from "../../domain/entities/claim.entity";
 class ClaimRepository{
     private claim: Claim[];
     
-
-
     public constructor() {
         this.claim = [];
     }
 
+    
     public async save(claim : Claim): Promise<void>{
         const saveClaim = this.claim.find(a => a.getId() == claim.getId());
 
@@ -28,7 +27,6 @@ class ClaimRepository{
         return this.claim
     }
 
-   
     public async findLastClaimsByVisitor(visitorId: string ): Promise<Claim[] | null> {
         return new Promise<Claim[] | null>((resolve, reject) => {
             try {
@@ -43,7 +41,6 @@ class ClaimRepository{
             }
         })
     }
-
 
     public async findLast5Claims(): Promise<Claim[] | null> {
         return new Promise<Claim[] | null>((resolve, reject) => {
@@ -79,8 +76,6 @@ class ClaimRepository{
         });
     }
     
-
-
 }
 
 export {ClaimRepository};
