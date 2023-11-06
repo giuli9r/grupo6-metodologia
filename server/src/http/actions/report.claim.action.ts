@@ -1,17 +1,18 @@
 import { Request, Response } from 'express';
 import ReportClaimCommand from '../../application/commands/reportclaim.command';
-import ReportClaimHandler from '../../application/handlers/report.claim.handler'; //esperar handler
+import ReportClaimHandler from '../../application/handlers/reportClaim.handler';
 
 class ReportClaimAction {
     public async run(req: Request, res: Response) {
-        const { id, descripcion, visitorId, claimId } = req.body;
+        const { id, descripcion, visitorId, claimId, cloneOfId } = req.body;
         
         try {
             const command = new ReportClaimCommand(
               id,
               descripcion,
               visitorId,
-              claimId
+              claimId,
+              cloneOfId,
             );
             await ReportClaimHandler.execute(command);
 
@@ -20,7 +21,7 @@ class ReportClaimAction {
             );
         } catch (error:any) {
             const e = error as Error;
-            return res.status(400).json(
+            res.status(400).json(
                 { message: e.message }
             );
         }
