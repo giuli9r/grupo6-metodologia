@@ -69,8 +69,6 @@ class ClaimRepository{
               return claim.getCreatedAt().getTime() > oneHourAgo;
             });
     
-            // Ordenar los reclamos
-            onFireClaims.sort((a, b) => b.getApprovalCount() - a.getApprovalCount());  //VER ERROR
             
             // primeros 5 reclamos "on fire"
             const result = onFireClaims.slice(0, 5);
