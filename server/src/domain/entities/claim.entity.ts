@@ -54,6 +54,26 @@ export class Claim{
             );
     }
 
+    public getTitle(): string {
+        return this.title;
+    }
+
+    public getDescription(): string {
+        return this.description;
+    }
+
+    public getCategory(): Category {
+        return this.category;
+    }
+
+    public getLocation(): string {
+        return this.location;
+    }
+
+    public getCloneOf(): Claim | null {
+        return this.cloneOf;
+    }
+
     public getId(): string {
         return this.id;
     }

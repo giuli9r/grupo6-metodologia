@@ -36,6 +36,10 @@ class Visitor {
       return this.pin === enteredPin;
     }
 
+    public getIp(): string {
+        return this.ip;
+    }
+
     public changeNickName(nickname: string): void {
         this.nickname = nickname;
     }
