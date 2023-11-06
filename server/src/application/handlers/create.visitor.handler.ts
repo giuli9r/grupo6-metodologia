@@ -19,17 +19,10 @@ class CreateVisitorHandler {
       try { 
         // Buscar el visitante
         const visitorResponse = await this.visitorRepository.findOneByNickName(command.getNickName());
-            
+
         if (visitorResponse) {
           throw new Error('Ya existe ese nombre de usuario.');
         }
-    
-        // Validar el lenth < 5
-        // if (visitor) {
-        //     if (visitor.validatePinLength(command.getPIN()) ) {
-        //         throw new Error('El PIN es demasiado largo ');
-        //     }
-        // }
     
         const ip= command.getIp();
         const nickname=command.getNickName();
