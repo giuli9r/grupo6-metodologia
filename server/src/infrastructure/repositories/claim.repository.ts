@@ -41,9 +41,23 @@ class ClaimRepository{
                 reject(error);
             }
         })
-
-      
     }
+
+
+    public async findLast5Claims(): Promise<Claim[] | null> {
+        return new Promise<Claim[] | null>((resolve, reject) => {
+            try {
+
+                const allClaims = this.claim.sort((a, b) => b.getCreatedAt().getTime() - a.getCreatedAt().getTime());
+    
+                const result = allClaims.slice(0, 5);
+                resolve(result);
+            } catch (error) {
+                reject(error);
+            }
+        })
+    }
+
 
 }
 
