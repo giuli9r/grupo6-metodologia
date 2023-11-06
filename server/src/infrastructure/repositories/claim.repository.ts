@@ -2,6 +2,7 @@ import Claim from "../../domain/entities/claim.entity";
 
 class ClaimRepository{
     private claim: Claim[];
+    
 
 
     public constructor() {
@@ -57,6 +58,29 @@ class ClaimRepository{
             }
         })
     }
+
+    public async findOnFireClaimsLastHour(): Promise<Claim[] | null> {
+        return new Promise<Claim[] | null>((resolve, reject) => {
+          try {
+            // reclamos creados en la última hora
+            const currentTime = new Date().getTime();
+            const oneHourAgo = currentTime - 3600000; 
+            const onFireClaims = this.claim.filter((claim) => {
+              return claim.getCreatedAt().getTime() > oneHourAgo;
+            });
+    
+            // Ordenar los reclamos
+            onFireClaims.sort((a, b) => b.getApprovalCount() - a.getApprovalCount());  //VER ERROR
+            
+            // primeros 5 reclamos "on fire"
+            const result = onFireClaims.slice(0, 5);
+            resolve(result);
+          } catch (error) {
+            reject(error);
+          }
+        });
+    }
+    
 
 
 }
