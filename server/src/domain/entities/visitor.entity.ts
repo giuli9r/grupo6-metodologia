@@ -36,6 +36,11 @@ class Visitor {
       return this.pin === enteredPin;
     }
 
+    public validatePinLength(enteredPin:string): boolean
+    {        
+      return enteredPin.length < 5;
+    }
+
     public changeNickName(nickname: string): void {
         this.nickname = nickname;
     }

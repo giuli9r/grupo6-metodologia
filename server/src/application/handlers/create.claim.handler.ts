@@ -1,10 +1,10 @@
 import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
 import claimRepository from 'infrastructure/repositories/claim.repository';
 import Claim from '../../domain/entities/claim.entity';
-import {CreateClaimCommand} from '../commands/claim/create.claim.command';
+import {CreateClaimCommand} from '../commands/create.claim.command';
 import Visitor from '../../domain/entities/visitor.entity';
 import Category from '../../domain/entities/category.entity';
-import { error } from "winston";
+// import { error } from "winston";
 
 
 class CreateClaimHandler{
@@ -27,7 +27,7 @@ class CreateClaimHandler{
           throw new Error('PIN incorrecto.');
         }
     
-        const title= command.getTittle();
+        const title= command.getTitle();
         const description=command.getDescription();
         const category=command.getCategory();
         const location= command.getLocation();
