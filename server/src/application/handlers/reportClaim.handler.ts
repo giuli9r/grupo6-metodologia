@@ -1,7 +1,6 @@
 import claimRepository, {ClaimRepository} from 'infrastructure/repositories/claim.repository';
 import {ReportClaimCommand} from '../commands/reportclaim.command';
 
-
 class ReportClaimHandler{
 
   private claimRepository: ClaimRepository;
