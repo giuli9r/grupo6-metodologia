@@ -1,6 +1,6 @@
 import {ClaimRepository} from "../../infrastructure/repositories/claim.repository";
 import {likeCommand} from "../commands/like.command";
-
+import { VisitorRepository } from "../../infrastructure/repositories/visitor.repository";
 
 
 export class LikeHandler{
