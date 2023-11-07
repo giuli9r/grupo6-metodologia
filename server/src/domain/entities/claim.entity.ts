@@ -66,6 +66,25 @@ export class Claim{
         return this.createdAt
     }
 
+    public getTitle() {
+      return this.title;
+    }
+
+    public getDescription() {
+      return this.description;
+    }
+
+    public getCategory() {
+      return this.category;
+    }
+
+    public getLocation() {
+      return this.location;
+    }
+
+    public getClonedOf() {
+      return this.cloneOf;
+    }
     public getLikes(): string[] {
         return this.likes;
     }

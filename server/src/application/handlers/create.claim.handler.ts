@@ -13,6 +13,7 @@ class CreateClaimHandler{
     public constructor(visitorRepository: VisitorRepository){
       this.visitorRepository = visitorRepository;
     }
+  
     public async execute(command: CreateClaimCommand): Promise<void> {
       try { 
         // Buscar el visitante
