@@ -4,13 +4,10 @@ import ReportClaimHandler from '../../application/handlers/reportClaim.handler';
 
 class ReportClaimAction {
     public async run(req: Request, res: Response) {
-        const { id, descripcion, visitorId, claimId, cloneOfId } = req.body;
+        const { claimId, cloneOfId } = req.body;
         
         try {
             const command = new ReportClaimCommand(
-              id,
-              descripcion,
-              visitorId,
               claimId,
               cloneOfId,
             );
