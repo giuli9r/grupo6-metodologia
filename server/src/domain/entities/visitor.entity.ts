@@ -11,18 +11,11 @@ class Visitor {
         ip : string,
         nickname : string,
         pin: string
-    )
-        
-    {
+    ) {
         this.id = id; 
         this.ip=ip ;  
         this.nickname = nickname;
         this.pin= pin;
-    }
-    
-    public validatePin(enteredPin:string): boolean
-    {        
-      return this.pin === enteredPin;
     }
 
     public static create(
@@ -38,8 +31,16 @@ class Visitor {
         );
     }
     
+    public validatePin(enteredPin:string): boolean
+    {        
+      return this.pin === enteredPin;
+    }
 
-    public chageNickName(nickname: string): void {
+    public getIp(): string {
+        return this.ip;
+    }
+
+    public changeNickName(nickname: string): void {
         this.nickname = nickname;
     }
 

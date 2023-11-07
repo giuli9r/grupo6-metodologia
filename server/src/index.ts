@@ -4,10 +4,12 @@ import cors from 'cors';
 import { log } from 'debug';
 import expressWinston from 'express-winston';
 import winston from 'winston';
+import CategoryRoutes from './http/routes/category.routes';
 
 const app: express.Application = express();
 
 const loggerOptions: expressWinston.LoggerOptions = {
+  
   transports: [new winston.transports.Console()],
   format: winston.format.combine(
     winston.format.json(),
@@ -29,7 +31,7 @@ app.use(express.json());
 
 // Add router
 // you should add your routes here...
-//routes.push(new PassengerRoutes(app));
+routes.push(new CategoryRoutes(app));
 
 
 app.listen(3000, () => {
