@@ -4,7 +4,7 @@ import Claim from '../../domain/entities/claim.entity';
 import {CreateClaimCommand} from '../commands/create.claim.command';
 import Visitor from '../../domain/entities/visitor.entity';
 import Category from '../../domain/entities/category.entity';
-// import { error } from "winston";
+
 
 
 class CreateClaimHandler{

@@ -3,7 +3,6 @@ import claimRepository, {ClaimRepository} from "../../infrastructure/repositorie
 import Visitor from "../../domain/entities/visitor.entity";
 import visitorRepository, {VisitorRepository}  from "../../infrastructure/repositories/visitor.repository";
 import {likeCommand} from "../commands/like.command";
-import { error } from "winston";
 
 
 class LikeHandler{

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import GetCategoriesCommand from 'application/commands/get.categories.command';
-import getCategoryHandler from 'application/handlers/get.category.handler';
+import GetCategoriesCommand from '../../application/commands/get.categories.command';
+import getCategoryHandler from '../../application/handlers/get.category.handler';
 
 class GetCategoryAction {
 

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import dislikeCommand from '../../application/commands/dislike.command';
-import dislikeHandler from 'application/handlers/dislike.handler';
+import dislikeHandler from '../../application/handlers/dislike.handler';
 
 
 class DislikeAction {

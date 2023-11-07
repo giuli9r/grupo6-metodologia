@@ -1,4 +1,4 @@
-import claimRepository, {ClaimRepository} from 'infrastructure/repositories/claim.repository';
+import claimRepository, {ClaimRepository} from '../../infrastructure/repositories/claim.repository';
 import {ReportClaimCommand} from '../commands/reportclaim.command';
 
 

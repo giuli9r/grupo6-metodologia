@@ -1,6 +1,6 @@
 import Category from "../../domain/entities/category.entity";
 import categoryRepository, { CategoryRepository }  from "../../infrastructure/repositories/category.repository";
-import GetCategoriesCommand from "application/commands/get.categories.command";
+import GetCategoriesCommand from "../../application/commands/get.categories.command";
 
 
 class GetCategoryHandler{
