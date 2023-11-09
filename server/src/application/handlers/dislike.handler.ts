@@ -1,6 +1,4 @@
-import Claim from "../../domain/entities/claim.entity";
 import claimRepository, {ClaimRepository} from "../../infrastructure/repositories/claim.repository";
-import Visitor from "../../domain/entities/visitor.entity";
 import visitorRepository, {VisitorRepository}  from "../../infrastructure/repositories/visitor.repository";
 import {dislikeCommand} from "../../application/commands/dislike.command";
 

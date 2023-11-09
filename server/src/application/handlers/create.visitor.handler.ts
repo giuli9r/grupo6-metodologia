@@ -1,13 +1,9 @@
-// import  {Claim} from '../../domain/entities/claim.entity';
-// import { CreateVisitorCommand } from '../commands/create.visitor.command';
-// import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
-
 import Visitor from '../../domain/entities/visitor.entity';
 import {CreateVisitorCommand} from '../commands/create.visitor.command';
 import visitorRepository, {VisitorRepository} from '../../infrastructure/repositories/visitor.repository';
 
 
-class CreateVisitorHandler {
+export class CreateVisitorHandler {
     
     private visitorRepository: VisitorRepository;
 

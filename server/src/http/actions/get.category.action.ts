@@ -1,18 +1,12 @@
 import { Request, Response } from 'express';
-import GetCategoriesCommand from '../../application/commands/get.categories.command';
 import getCategoryHandler from '../../application/handlers/get.category.handler';
 
 class GetCategoryAction {
 
-  public async run(req: Request, res: Response) {
-    const { name, color } = req.body;
+  public async run(_req: Request, res: Response) {
 
     try {
-      const command = new GetCategoriesCommand(name, color);
-
-
-      const categories = await getCategoryHandler.execute(command);
-
+      const categories = await getCategoryHandler.execute();
 
       console.log("Retrieved Categories:", categories);
 

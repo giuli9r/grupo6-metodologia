@@ -4,10 +4,10 @@ import likeHandler from '../../application/handlers/like.handler';
 
 class LikeAction {
   public async run(req: Request, res: Response) {
-    const { userId, claimId } = req.body;
+    const { userId, claimId, visitorPin } = req.body;
 
     try {
-      const command = new likeCommand(userId, claimId);
+      const command = new likeCommand(userId, claimId, visitorPin);
       
       await likeHandler.execute(command);
 
