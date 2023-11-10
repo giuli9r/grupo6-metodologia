@@ -12,6 +12,7 @@ export class Claim{
     private createdAt: Date;
     private cloneOf: Claim | null;
     private likes: string[] = [];
+    private dislikes: string[] = [];
 
     private constructor(
         id:string,
@@ -65,6 +66,25 @@ export class Claim{
         return this.createdAt
     }
 
+    public getTitle() {
+      return this.title;
+    }
+
+    public getDescription() {
+      return this.description;
+    }
+
+    public getCategory() {
+      return this.category;
+    }
+
+    public getLocation() {
+      return this.location;
+    }
+
+    public getClonedOf() {
+      return this.cloneOf;
+    }
     public getLikes(): string[] {
         return this.likes;
     }
@@ -78,7 +98,24 @@ export class Claim{
           this.likes.push(visitorId);
         }
     }
-      
+
+    public getDislikes(): string[] {
+        return this.dislikes;
+    }
+
+    public hasVisitorDislked(visitorId: string): boolean {
+        return this.dislikes.includes(visitorId);
+    }
+
+    public addDislike(visitorId: string): void {
+        if (!this.dislikes.includes(visitorId)) {
+            this.dislikes.push(visitorId);
+        }
+    }
+
+    public setCloneOf ( claimOriginal : Claim ) : void{
+        this.cloneOf = claimOriginal;
+    }
 }
 
 export default Claim;

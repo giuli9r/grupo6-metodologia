@@ -3,11 +3,11 @@ import likeCommand from '../../application/commands/like.command';
 import likeHandler from '../../application/handlers/like.handler';
 
 class LikeAction {
-  public async likeClaim(req: Request, res: Response) {
-    const { userId, claimId } = req.body;
+  public async run(req: Request, res: Response) {
+    const { userId, claimId, visitorPin } = req.body;
 
     try {
-      const command = new likeCommand(userId, claimId);
+      const command = new likeCommand(userId, claimId, visitorPin);
       
       await likeHandler.execute(command);
 
@@ -18,7 +18,7 @@ class LikeAction {
     catch (error:any)
     {
       const e = error as Error;
-      res.status(400).json(
+      return res.status(400).json(
       { message: e.message }
       );
         

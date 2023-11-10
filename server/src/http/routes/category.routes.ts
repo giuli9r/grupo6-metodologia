@@ -1,17 +1,24 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
-import createCategoryAction from '../actions/category/create.category.action';
-import updateCategoryAction from '../actions/category/update.category.action';
-import findCategoryAction from '../actions/category/find.category.action';
+import getCategoryAction from '../actions/get.category.action';
+import CategorySeeder from '../seeders/category.seeder'
+
 
 class CategoryRoutes extends CommonRoutes{
     public constructor(app: Application){
         super(app, 'Category');
     }
     public setUpRoutes(): Application {
-        this.app.post('/category', createCategoryAction.run);
-        this.app.get('/category',findCategoryAction.run);
-        this.app.put('/category',updateCategoryAction.run);
+        
+        this.app.get('/category',getCategoryAction.run);
+        this.app.get('/seed-categories', async (_req, res) => {
+            try {
+                await CategorySeeder.generate();
+                res.status(200).json({ message: 'Category seeding successful' });
+            } catch (error) {
+                res.status(500).json({ error: 'Category seeding failed' });
+            }
+        });
 
         return this.app;
     }

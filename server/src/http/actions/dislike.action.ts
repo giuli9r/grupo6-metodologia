@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import dislikeCommand from '../../application/commands/dislike.command';
+import dislikeHandler from '../../application/handlers/dislike.handler';
 
 
 class DislikeAction {
@@ -9,7 +10,7 @@ class DislikeAction {
     try {
       const command = new dislikeCommand(userId,claimId) 
       
-      await CreateDislikeHandler.execute(command)
+      await dislikeHandler.execute(command)
 
       return res.status(201).json(
         { message: 'Dislike' }
@@ -18,7 +19,7 @@ class DislikeAction {
     catch (error:any)
     {
       const e = error as Error;
-      res.status(400).json(
+      return res.status(400).json(
       { message: e.message }
       );
         

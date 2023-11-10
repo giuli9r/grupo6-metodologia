@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import CreateClaimCommand from '../../../application/commands/create.claim.command';
-import CreateClaimHandler from '../../../application/handlers/create.claim.handler';
+import CreateClaimCommand from '../../application/commands/create.claim.command';
+import CreateClaimHandler from '../../application/handlers/create.claim.handler';
 
 class CreateClaimAction {
     public async run(req: Request, res: Response) {
-        const { ownerId, title, description, category, location, createdAt, cloneOf } = req.body;
+        const { ownerId, title, description, category, location} = req.body;
         
         try {
             const command = new CreateClaimCommand(
@@ -13,8 +13,6 @@ class CreateClaimAction {
               description,
               category,
               location,
-              createdAt,
-              cloneOf,
             );
             await CreateClaimHandler.execute(command);
 
@@ -24,9 +22,10 @@ class CreateClaimAction {
         } catch (error:any)
             {
                 const e = error as Error;
-                res.status(400).json(
+                return res.status(400).json(
                     { message: e.message }
                 );
+            
             
         }
     }
